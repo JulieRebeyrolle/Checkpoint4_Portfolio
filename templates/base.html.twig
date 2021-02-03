@@ -11,28 +11,37 @@
 
     </head>
     <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Julie Rebeyrolle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary">
+        <div class="d-flex flex-grow-1">
+            <a class="navbar-brand logo font-weight-bold pl-3" href="/">Jr - Web</a>
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbar">
+            <ul class="navbar-nav ml-auto flex-nowrap">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Expériences</a>
+                    <a href="#" class="nav-link px-3">À propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Formation</a>
+                    <a href="#" class="nav-link px-3">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
+                    <a href="#" class="nav-link px-3">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a href="#" class="nav-link px-3">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-3">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+
         {% block body %}{% endblock %}
     </body>
     {% block javascripts %}
