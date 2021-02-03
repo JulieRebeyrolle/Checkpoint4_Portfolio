@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Julie Rebeyrolle | Admin | {% endblock %}</title>
+        {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}
+        {% endblock %}
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    </head>
+    <body>
+        {% block navbar %} {% include '_includes/_admin_navbar.html.twig' %} {% endblock %}
+
+        {% block body %}{% endblock %}
+
+    </body>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</html>
