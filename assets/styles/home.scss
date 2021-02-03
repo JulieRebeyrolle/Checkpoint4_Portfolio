@@ -1,0 +1,65 @@
+@import 'variables';
+@import "~bootstrap/scss/bootstrap";
+
+.background {
+  background-attachment: fixed;
+  background-image: url("../images/mountains-home.png");
+  background-color: rgba(255, 255, 255, 0.6);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+  background-repeat: repeat-y;
+}
+
+.header-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.diamond {
+  width: 200px;
+  height: 200px;
+  border: 3px solid $primary-transparent;
+  transform: rotate(45deg);
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unrotate {
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about {
+  background-color: $light;
+}
+
+.profile-picture {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid $primary;
+}
+
+.home-icons {
+  color: $dark;
+}
+
+.size-120 {
+  width: 120px;
+  height: 120px;
+}
+
+.size-100 {
+  width: 100px;
+  height: 100px;
+}
+
