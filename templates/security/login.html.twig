@@ -6,19 +6,19 @@
     <div class="container content-container w-50 pt-5">
         <form method="post">
             {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="alert alert-danger mt-5">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
             {% if app.user %}
                 <div class="mb-3">
-                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('logout') }}">Logout</a>
                 </div>
             {% endif %}
 
             <h1 class="my-5 font-weight-bold">Connexion</h1>
             <label for="inputEmail">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-            <label for="inputPassword" class="pt-3">Password</label>
+            <label for="inputPassword" class="pt-3">Mot de passe</label>
             <input type="password" name="password" id="inputPassword" class="form-control mb-5" required>
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
