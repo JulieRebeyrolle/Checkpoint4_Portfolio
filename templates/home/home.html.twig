@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} A propos{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('home') }}
+    {% endblock %}
+
+
+{% block body %}
+    <div class="background">
+        <header class="content-container header-display">
+            <div class="logo-header diamond">
+                <div class="unrotate text-center">
+                    <h1 class="font-weight-bold text-dark text-center">Julie rebeyrolle</h1>
+                    <h2 class="font-weight-bold home-title text-dark text-center">Développeuse web</h2>
+{#                    <p class="mb-0">06.21.25.44.54</p>
+                    <p class="mb-0">julie.rebeyrolle@gmail.com</p>#}
+                </div>
+            </div>
+        </header>
+        <div class="about">
+            <div class="container py-5">
+                <h2 class="text-center font-weight-bold text-dark pt-5 pb-3">À propos</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 text-center align-middle py-3">
+                        <img src="{{ asset('build/images/photo_cv2.png') }}" alt="profil-picture" class="profile-picture">
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 py-3">
+                        <p class="px-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p class="px-2 text-justify pb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills py-5">
+            <div class="container pb-3 text-center">
+                <h2 class="text-center font-weight-bold text-dark pt-5">Compétences principales</h2>
+                <span class="iconify home-icons size-120 px-3" data-icon="cib:php" data-inline="false"></span>
+                <span class="iconify home-icons size-100 px-4" data-icon="cib:symfony" data-inline="false"></span>
+                <span class="iconify home-icons size-100 px-3" data-icon="cib:mysql" data-inline="false"></span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

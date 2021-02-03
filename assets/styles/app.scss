@@ -3,7 +3,12 @@
 @import 'variables';
 @import "~bootstrap/scss/bootstrap";
 
-h1 {
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2 {
     font-family: $font-family-title;
 }
 
@@ -14,17 +19,22 @@ h1 {
     font-size: $font-size-logo;
 }
 
+.bg-perso {
+    background-color: $secondary-transparent;
+}
+
 .nav-link {
     margin-bottom: -4px;
     font-family: $font-family-sans-serif;
     font-weight: bold;
-    border-bottom: 4px solid rgba(0,0,0,0);
+    border-bottom: 3px solid rgba(0,0,0,0);
 }
 
 .nav-link:hover {
-    border-bottom: 4px solid #212121;
+    border-bottom: 3px solid #212121;
 }
 
-body {
-    background-color: whitesmoke;
+// general CSS
+.content-container {
+    padding-top: 70px;
 }

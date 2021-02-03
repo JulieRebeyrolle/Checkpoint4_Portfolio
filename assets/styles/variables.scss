@@ -4,22 +4,27 @@ font-family: 'Poiret One', cursive;*/
 
 /* surcharge Bootstrap*/
 
+$dark: #07070e;
+$light: #f9feff;
 
 $primary: #3b4358;
+$primary-transparent: rgba(59, 67, 88, 0.8);
 $secondary: #d0826f;
-$text-dark: $primary;
+$secondary-transparent: rgba(208, 130, 111, 0.8);
+$text-dark: $dark;
 
 $grey: #dfe0e0;
 
-$dark: #212121;
-$light: #f9feff;
+
 
 $border-radius: 5px;
 
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-title: 'Megrim', cursive;
+/*
 $enable-responsive-font-sizes: true;
+*/
 
 /* variables texte */
 
-$font-size-logo : 18pt;
+$font-size-logo : 24pt;
