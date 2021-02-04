@@ -89,6 +89,9 @@ class AdminSkillsController extends AbstractController
 
     /**
      * @Route("/{id}", name="skills_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Skills $skill
+     * @return Response
      */
     public function delete(Request $request, Skills $skill): Response
     {
@@ -98,6 +101,6 @@ class AdminSkillsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('skills_index');
+        return $this->redirectToRoute('admin_skills_index');
     }
 }

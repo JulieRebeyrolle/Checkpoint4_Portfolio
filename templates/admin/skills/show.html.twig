@@ -1,18 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminbase.html.twig' %}
 
-{% block title %}Skills{% endblock %}
+{% block title %}{{ parent() }} {{ skill.name }}{% endblock %}
 
 {% block body %}
-    <h1>Skills</h1>
+<div class="content-container container">
+    <a href="{{ path('admin_skills_index') }}" class="btn btn-primary mt-3">Retour à la liste</a>
+
+<h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Compétence : {{ skill.name }}</h1>
+
+    <div class="content-container container">
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ skill.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ skill.name }}</td>
             </tr>
             <tr>
@@ -20,19 +21,21 @@
                 <td>{{ skill.label }}</td>
             </tr>
             <tr>
-                <th>Category</th>
+                <th>Categorie</th>
                 <td>{{ skill.category }}</td>
             </tr>
             <tr>
-                <th>ShowOnCv</th>
-                <td>{{ skill.showOnCv ? 'Yes' : 'No' }}</td>
+                <th>Affiché sur le CV</th>
+                <td>{{ skill.showOnCv ? 'Oui' : 'Non' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('skills_index') }}">back to list</a>
+        <div class="text-center py-5">
+            <a href="{{ path('admin_skills_edit', {'id': skill.id}) }}" class="btn btn-secondary">Modifier</a>
+        </div>
 
-    <a href="{{ path('skills_edit', {'id': skill.id}) }}">edit</a>
-
-    {{ include('skills/_delete_form.html.twig') }}
+    {{ include('admin/skills/_delete_form.html.twig') }}
+    </div>
+</div>
 {% endblock %}
