@@ -22,6 +22,7 @@ class AdminCvController extends AbstractController
      */
     public function index(CurriculumVitaeRepository $curriculumVitaeRepository): Response
     {
+
         return $this->render('admin/curriculum_vitae/index.html.twig', [
             'curriculum_vitaes' => $curriculumVitaeRepository->findBy([], ['startingDate' => 'DESC']),
         ]);

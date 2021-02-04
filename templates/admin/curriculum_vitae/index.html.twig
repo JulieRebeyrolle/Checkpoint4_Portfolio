@@ -20,6 +20,7 @@
                 <th>École / Entreprise</th>
                 <th>Début</th>
                 <th>Fin</th>
+                <th>Categorie</th>
                 <th>Détails</th>
                 <th colspan="2">Actions</th>
             </tr>
@@ -32,6 +33,7 @@
                 <td class="font-weight-bold align-middle">{{ curriculum_vitae.place }}</td>
                 <td class="align-middle">{{ curriculum_vitae.startingDate ? curriculum_vitae.startingDate|date('Y') : '' }}</td>
                 <td class="align-middle">{{ curriculum_vitae.endingDate ? curriculum_vitae.endingDate|date('Y') : '' }}</td>
+                <td class="align-middle">{{ curriculum_vitae.category.name }}</td>
                 <td class="align-middle">{{ curriculum_vitae.resume }}</td>
                 <td class="align-middle">
                     <a href="{{ path('admin_cv_show', {'id': curriculum_vitae.id}) }}" class="align-middle text-decoration-none">

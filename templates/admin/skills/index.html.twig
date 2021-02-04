@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Icone</th>
                 <th>Nom</th>
                 <th>Label</th>
                 <th>Catégorie</th>
@@ -25,6 +26,9 @@
         {% for skill in skills %}
             <tr>
                 <td class="align-middle">{{ skill.id }}</td>
+                <td class="align-middle">
+                    <img class="skill-icon" src="/uploads/images/icons/{{ skill.icon }}" alt="{{ skill.name }} picture">
+                </td>
                 <td class="align-middle">{{ skill.name }}</td>
                 <td class="align-middle">{{ skill.label }}</td>
                 <td class="align-middle">{{ skill.category }}</td>
