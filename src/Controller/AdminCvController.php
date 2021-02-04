@@ -23,7 +23,7 @@ class AdminCvController extends AbstractController
     public function index(CurriculumVitaeRepository $curriculumVitaeRepository): Response
     {
         return $this->render('admin/curriculum_vitae/index.html.twig', [
-            'curriculum_vitaes' => $curriculumVitaeRepository->findAll(),
+            'curriculum_vitaes' => $curriculumVitaeRepository->findBy([], ['startingDate' => 'DESC']),
         ]);
     }
 
@@ -43,7 +43,7 @@ class AdminCvController extends AbstractController
             $entityManager->persist($curriculumVitae);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin/curriculum_vitae_index');
+            return $this->redirectToRoute('admin_cv_index');
         }
 
         return $this->render('admin/curriculum_vitae/new.html.twig', [
