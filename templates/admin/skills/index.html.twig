@@ -31,7 +31,7 @@
                 </td>
                 <td class="align-middle">{{ skill.name }}</td>
                 <td class="align-middle">{{ skill.label }}</td>
-                <td class="align-middle">{{ skill.category }}</td>
+                <td class="align-middle">{{ skill.category.name }}</td>
                 <td class="align-middle">{{ skill.showOnCv ? 'CV' : '' }}</td>
                 <td>
                     <a href="{{ path('admin_skills_show', {'id': skill.id}) }}" class="text-decoration-none">

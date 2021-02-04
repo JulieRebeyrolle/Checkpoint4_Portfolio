@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\SkillsRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -31,11 +33,6 @@ class Skills
      * @ORM\Column(type="string", length=255)
      */
     private ?string $label;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $category;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -72,6 +69,21 @@ class Skills
 
     private DateTime $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=SkillsCategory::class, mappedBy="skills")
+     */
+    private $skillsCategories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=SkillsCategory::class, inversedBy="skills")
+     */
+    private $category;
+
+    public function __construct()
+    {
+        $this->skillsCategories = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,18 +109,6 @@ class Skills
     public function setLabel(string $label): self
     {
         $this->label = $label;
-
-        return $this;
-    }
-
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -179,6 +179,17 @@ class Skills
         $this->updatedAt = $updatedAt;
     }
 
+    public function getCategory(): ?SkillsCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?SkillsCategory $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 
 
 }
