@@ -29,6 +29,8 @@ class AdminSkillsController extends AbstractController
 
     /**
      * @Route("/new", name="skills_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -52,16 +54,21 @@ class AdminSkillsController extends AbstractController
 
     /**
      * @Route("/{id}", name="skills_show", methods={"GET"})
+     * @param Skills $skill
+     * @return Response
      */
     public function show(Skills $skill): Response
     {
-        return $this->render('skills/show.html.twig', [
+        return $this->render('admin/skills/show.html.twig', [
             'skill' => $skill,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="skills_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Skills $skill
+     * @return Response
      */
     public function edit(Request $request, Skills $skill): Response
     {
@@ -71,10 +78,10 @@ class AdminSkillsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('skills_index');
+            return $this->redirectToRoute('admin_skills_index');
         }
 
-        return $this->render('skills/edit.html.twig', [
+        return $this->render('admin/skills/edit.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
         ]);
