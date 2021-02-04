@@ -10,7 +10,37 @@
     <div class="content-container">
 
         <h1 class="d-none">Curriculum Vitae</h1>
-        <h2 class="font-weight-bold text-dark text-center">Compétences</h2>
+        <h2 class="font-weight-bold text-dark text-center pt-5">Compétences</h2>
+
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                {% for name, skillList in skills %}
+                    <div class="col-lg-4 col-sm-6 col-xs-12 ">
+                        <div class="card my-2 mx-1">
+                            <div class="card-body">
+                                <div class="card-title text-center pt-3">
+                                    <h4 class="card-title d-inline font-weight-bold">{{ name }}</h4>
+                                </div>
+                                <div class="card-body">
+
+                                <ul class="list-group list-group-flush">
+                                {% for skill in skillList %}
+                                    <li class="list-group-item">
+                                    <div class="d-flex">
+                                        <img class="skill-icon d-inline" src="/uploads/images/icons/{{ skill.icon }}" alt="{{ skill.name }} picture">
+                                        <p class="card-subtitle font-weight-bold pt-2 pl-2">{{ skill.name }}</p>
+                                    </div>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
         <h2 class="font-weight-bold text-dark text-center py-5">Expériences & Formations</h2>
 
         <div class="container">
