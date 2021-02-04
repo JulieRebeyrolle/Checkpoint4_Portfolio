@@ -13,6 +13,16 @@
     <body>
         {% block navbar %} {% include '_includes/_navbar.html.twig' %} {% endblock %}
 
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="pt-5">
+                    <div class="alert alert-{{ category }} text-center rounded-0 mt-5">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block body %}{% endblock %}
 
         {% block footer %} {% include '_includes/_footer.html.twig' %} {% endblock %}
