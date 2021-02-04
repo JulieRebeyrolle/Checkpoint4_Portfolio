@@ -42,6 +42,7 @@ class AdminSkillsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($skill);
             $entityManager->flush();
+            $this->addFlash('success', 'Tout est ok !');
 
             return $this->redirectToRoute('admin_skills_index');
         }
@@ -77,6 +78,8 @@ class AdminSkillsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Tout est ok !');
+
 
             return $this->redirectToRoute('admin_skills_index');
         }
@@ -99,6 +102,7 @@ class AdminSkillsController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($skill);
             $entityManager->flush();
+            $this->addFlash('success', 'Tout est ok !');
         }
 
         return $this->redirectToRoute('admin_skills_index');

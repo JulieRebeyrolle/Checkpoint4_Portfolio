@@ -42,6 +42,7 @@ class AdminCvController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($curriculumVitae);
             $entityManager->flush();
+            $this->addFlash('success', 'Tout est ok !');
 
             return $this->redirectToRoute('admin_cv_index');
         }
@@ -78,6 +79,8 @@ class AdminCvController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Tout est ok !');
+
             return $this->redirectToRoute('admin_cv_index');
         }
 
@@ -99,7 +102,9 @@ class AdminCvController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($curriculumVitae);
             $entityManager->flush();
+
         }
+        $this->addFlash('success', 'Tout est ok !');
 
         return $this->redirectToRoute('admin_cv_index');
     }
