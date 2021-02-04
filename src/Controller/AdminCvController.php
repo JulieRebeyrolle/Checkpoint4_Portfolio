@@ -59,7 +59,7 @@ class AdminCvController extends AbstractController
      */
     public function show(CurriculumVitae $curriculumVitae): Response
     {
-        return $this->render('curriculum_vitae/show.html.twig', [
+        return $this->render('admin/curriculum_vitae/show.html.twig', [
             'curriculum_vitae' => $curriculumVitae,
         ]);
     }
