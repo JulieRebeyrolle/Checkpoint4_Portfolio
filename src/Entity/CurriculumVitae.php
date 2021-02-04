@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CurriculumVitaeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=CurriculumVitaeRepository::class)
@@ -19,10 +21,14 @@ class CurriculumVitae
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255", maxMessage="La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères")
      */
     private $title;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255", maxMessage="La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères")
      * @ORM\Column(type="string", length=255)
      */
     private $place;
@@ -34,6 +40,8 @@ class CurriculumVitae
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThanOrEqual(propertyPath="startingDate",
+     *     message="Incohérence entre la date de début et la date de fin")
      */
     private $endingDate;
 
@@ -45,6 +53,7 @@ class CurriculumVitae
     /**
      * @ORM\ManyToOne(targetEntity=CvCategory::class, inversedBy="cvEntries")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $category;
 
