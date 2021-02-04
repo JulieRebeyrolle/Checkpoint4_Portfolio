@@ -34,7 +34,7 @@
                 <td class="align-middle">{{ curriculum_vitae.endingDate ? curriculum_vitae.endingDate|date('Y') : '' }}</td>
                 <td class="align-middle">{{ curriculum_vitae.resume }}</td>
                 <td class="align-middle">
-                    <a href="{{ path('admin_cv_show', {'id': curriculum_vitae.id}) }}" class="align-middle">
+                    <a href="{{ path('admin_cv_show', {'id': curriculum_vitae.id}) }}" class="align-middle text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
@@ -50,7 +50,7 @@
                     </a>
                 </td>
                 <td class="align-middle">
-                    <a href="{{ path('admin_cv_edit', {'id': curriculum_vitae.id}) }}" class="align-middle">
+                    <a href="{{ path('admin_cv_edit', {'id': curriculum_vitae.id}) }}" class="align-middle text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);

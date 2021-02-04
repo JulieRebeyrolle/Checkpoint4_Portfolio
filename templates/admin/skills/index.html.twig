@@ -18,7 +18,7 @@
                 <th>Label</th>
                 <th>Catégorie</th>
                 <th>Afficher sur le CV</th>
-                <th colspan="2">Actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
                 <td class="align-middle">{{ skill.category }}</td>
                 <td class="align-middle">{{ skill.showOnCv ? 'CV' : '' }}</td>
                 <td>
-                    <a href="{{ path('admin_skills_show', {'id': skill.id}) }}">
+                    <a href="{{ path('admin_skills_show', {'id': skill.id}) }}" class="text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
@@ -44,7 +44,7 @@
                             <rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" />
                         </svg>
                     </a>
-                    <a href="{{ path('admin_skills_edit', {'id': skill.id}) }}">
+                    <a href="{{ path('admin_skills_edit', {'id': skill.id}) }}" class="text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);

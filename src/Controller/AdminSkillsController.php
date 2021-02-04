@@ -41,10 +41,10 @@ class AdminSkillsController extends AbstractController
             $entityManager->persist($skill);
             $entityManager->flush();
 
-            return $this->redirectToRoute('skills_index');
+            return $this->redirectToRoute('admin_skills_index');
         }
 
-        return $this->render('skills/new.html.twig', [
+        return $this->render('admin/skills/new.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
         ]);
