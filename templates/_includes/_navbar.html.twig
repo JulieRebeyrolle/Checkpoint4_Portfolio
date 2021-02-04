@@ -25,5 +25,8 @@
                 <a href="#" class="nav-link px-3">Contact</a>
             </li>
         </ul>
+        {% if app.user %}
+            <a href="{{ path('admin_index') }}" class="mr-3 ml-3 btn btn-sm btn-secondary shadow-sm">Admin</a>
+        {% endif %}
     </div>
 </nav>
