@@ -1,0 +1,41 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{{ parent() }} {{ skill.name }}{% endblock %}
+
+{% block body %}
+<div class="content-container container">
+    <a href="{{ path('admin_skills_index') }}" class="btn btn-primary mt-3">Retour à la liste</a>
+
+<h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Compétence : {{ skill.name }}</h1>
+
+    <div class="content-container container">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ skill.name }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ skill.label }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ skill.category }}</td>
+            </tr>
+            <tr>
+                <th>Affiché sur le CV</th>
+                <td>{{ skill.showOnCv ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div class="text-center py-5">
+            <a href="{{ path('admin_skills_edit', {'id': skill.id}) }}" class="btn btn-secondary">Modifier</a>
+        </div>
+
+    {{ include('admin/skills/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

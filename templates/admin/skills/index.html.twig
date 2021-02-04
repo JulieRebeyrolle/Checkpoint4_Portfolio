@@ -1,40 +1,36 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block title %}{{ parent() }} CV Index{% endblock %}
+{% block title %}{{ parent() }} Compétences index{% endblock %}
 
 {% block body %}
-    <div class="content-container container">
+<div class="content-container container">
+    <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Compétences</h1>
 
-    <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Curriculum-Vitae</h1>
+    <div class="text-center py-5">
+        <a href="{{ path('admin_skills_new') }}" class="btn btn-secondary">Ajouter une nouvelle compétence</a>
+    </div>
 
-        <div class="text-center py-5">
-            <a href="{{ path('admin_cv_new') }}" class="btn btn-secondary">Ajouter une nouvelle expérience</a>
-        </div>
-
-
-        <table class="table">
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Titre</th>
-                <th>École / Entreprise</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Détails</th>
-                <th colspan="2">Actions</th>
+                <th>Nom</th>
+                <th>Label</th>
+                <th>Catégorie</th>
+                <th>Afficher sur le CV</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for curriculum_vitae in curriculum_vitaes %}
+        {% for skill in skills %}
             <tr>
-                <td class="align-middle">{{ curriculum_vitae.id }}</td>
-                <td class="font-weight-bold align-middle">{{ curriculum_vitae.title }}</td>
-                <td class="font-weight-bold align-middle">{{ curriculum_vitae.place }}</td>
-                <td class="align-middle">{{ curriculum_vitae.startingDate ? curriculum_vitae.startingDate|date('Y') : '' }}</td>
-                <td class="align-middle">{{ curriculum_vitae.endingDate ? curriculum_vitae.endingDate|date('Y') : '' }}</td>
-                <td class="align-middle">{{ curriculum_vitae.resume }}</td>
-                <td class="align-middle">
-                    <a href="{{ path('admin_cv_show', {'id': curriculum_vitae.id}) }}" class="align-middle text-decoration-none">
+                <td class="align-middle">{{ skill.id }}</td>
+                <td class="align-middle">{{ skill.name }}</td>
+                <td class="align-middle">{{ skill.label }}</td>
+                <td class="align-middle">{{ skill.category }}</td>
+                <td class="align-middle">{{ skill.showOnCv ? 'CV' : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_skills_show', {'id': skill.id}) }}" class="text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
@@ -44,13 +40,11 @@
                              9.28 10 15.82 10s12.46-3.72 15.82-10l.26-.48zm-15.82 8.9C12.17 26.43 7 23.29 4 18c3-5.29
                              8.17-8.43 13.8-8.43S28.54 12.72 31.59 18c-3.05 5.29-8.17 8.43-13.79 8.43z"
                                   class="clr-i-solid clr-i-solid-path-1" fill="#626262"/><circle cx="18.09"
-                                  cy="18.03" r="6.86" class="clr-i-solid clr-i-solid-path-2 align-middle" fill="#626262"/>
+                                 cy="18.03" r="6.86" class="clr-i-solid clr-i-solid-path-2 align-middle" fill="#626262"/>
                             <rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" />
                         </svg>
                     </a>
-                </td>
-                <td class="align-middle">
-                    <a href="{{ path('admin_cv_edit', {'id': curriculum_vitae.id}) }}" class="align-middle text-decoration-none">
+                    <a href="{{ path('admin_skills_edit', {'id': skill.id}) }}" class="text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              aria-hidden="true" focusable="false" width="2em" height="2em"
                              style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
@@ -67,12 +61,10 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">Aucune expérience trouvée</td>
+                <td colspan="6">Aucune compétences, nul</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    </div>
-
+</div>
 {% endblock %}

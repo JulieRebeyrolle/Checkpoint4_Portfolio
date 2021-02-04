@@ -1,0 +1,13 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{{ parent() }} Ajouter une cométence{% endblock %}
+
+{% block body %}
+    <div class="content-container container">
+        <a href="{{ path('admin_skills_index') }}" class="btn btn-primary mt-5">Retour à la liste</a>
+        <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Ajouter une compétence</h1>
+        <div class="content-container container">
+            {{ include('admin/skills/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
