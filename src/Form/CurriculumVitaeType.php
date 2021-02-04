@@ -6,6 +6,7 @@ use App\Entity\CurriculumVitae;
 use App\Entity\CvCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -24,11 +25,15 @@ class CurriculumVitaeType extends AbstractType
             ->add('place', TextType::class, [
                 'label' => 'École / Entreprise',
             ])
-            ->add('startingDate', DateTimeType::class, [
+            ->add('startingDate', BirthdayType::class, [
                 'label' => 'Date de début',
+                'years' => range(2004,2030)
+
             ])
-            ->add('endingDate', DateTimeType::class, [
+            ->add('endingDate', BirthdayType::class, [
                 'label' => 'Date de fin',
+                'years' => range(2004,2030)
+
             ])
             ->add('resume', TextareaType::class, [
                 'label' => 'Détails',
