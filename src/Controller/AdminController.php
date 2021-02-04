@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
 {
-
     /**
      * @Route("/", name="index")
      * @return Response
@@ -25,7 +24,4 @@ class AdminController extends AbstractController
 
         ]);
     }
-
-
-
 }

@@ -1,0 +1,14 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{{ parent() }} Ajouter une expérience{% endblock %}
+
+{% block body %}
+    <div class="content-container container">
+        <a href="{{ path('admin_cv_index') }}" class="btn btn-primary mt-5">Retour à la liste</a>
+            <h1 class="font-weight-bold text-dark text-center p3-5 pb-2">Modifier une expérience</h1>
+            <div class="content-container container">
+                {{ include('admin/curriculum_vitae/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                {{ include('admin/curriculum_vitae/_delete_form.html.twig') }}
+            </div>
+    </div>
+{% endblock %}
