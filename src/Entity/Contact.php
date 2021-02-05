@@ -26,6 +26,7 @@ class Contact
 
     /**
      * @Assert\NotBlank
+     * @Assert\Length(max="255")
      */
     private string $subject;
 
