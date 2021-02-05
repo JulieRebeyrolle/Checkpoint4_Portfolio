@@ -10,8 +10,8 @@
     <div class="my-5 container">
         <div class="row justify-content-center">
             {% for portfolio in portfolios %}
-            <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}" class="text-decoration-none">
                 <div class="col-lg-4 col-sm-6 col-xs-12 ">
+                    <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}" class="text-decoration-none">
                     <div class="card my-2 mx-1">
                             <div class="card-header p-0 pt-2">
                                 <div class="text-center py-2">
@@ -20,8 +20,9 @@
                             </div>
                             <img class="img-thumbnail card-img-bottom" src="/uploads/images/covers/{{ portfolio.coverPicture }}" alt="{{ portfolio.name }} picture">
                     </div>
+                    </a>
+
                 </div>
-            </a>
             {% endfor %}
         </div>
     </div>
