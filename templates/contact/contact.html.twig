@@ -1,19 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ parent() }} Me contacter{% endblock %}
-{% block stylesheets %}
-{#
-    {{ encore_entry_link_tags('contact') }}
-#}
-{% endblock %}
+
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <div class="text-center py-5">
-        <button class="btn btn-secondary">{{ button_label|default('Envoyer') }}</button>
-    </div>
-    {{ form_end(form) }}
+<div class="content-container container">
+    <h1 class="font-weight-bold text-dark text-center py-5">Me contacter</h1>
 
+    <div class="row pb-5">
+        <div class="col-xl-5 col-md-12 border-right px-5 text-right">
+            <div>
+                <h4 class="py-3">Informations de contact</h4>
+                <p class="py-3 pl-2 font-weight-bold">
+                    <span class="pr-2 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1.5em" height="1.5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M885.6 230.2L779.1 123.8a80.83 80.83 0 0 0-57.3-23.8c-21.7 0-42.1 8.5-57.4 23.8L549.8 238.4a80.83 80.83 0 0 0-23.8 57.3c0 21.7 8.5 42.1 23.8 57.4l83.8 83.8A393.82 393.82 0 0 1 553.1 553A395.34 395.34 0 0 1 437 633.8L353.2 550a80.83 80.83 0 0 0-57.3-23.8c-21.7 0-42.1 8.5-57.4 23.8L123.8 664.5a80.89 80.89 0 0 0-23.8 57.4c0 21.7 8.5 42.1 23.8 57.4l106.3 106.3c24.4 24.5 58.1 38.4 92.7 38.4c7.3 0 14.3-.6 21.2-1.8c134.8-22.2 268.5-93.9 376.4-201.7C828.2 612.8 899.8 479.2 922.3 344c6.8-41.3-6.9-83.8-36.7-113.8z" fill="#626262"/><rect x="0" y="0" width="1024" height="1024" fill="rgba(0, 0, 0, 0)" />
+                        </svg>
+                    </span>06 21 25 44 54</p>
+                <p class="py-3 pl-2 font-weight-bold">
+                        <span class="pr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1.5em" height="1.5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M1.574 5.286l7.5 4.029c.252.135.578.199.906.199c.328 0 .654-.064.906-.199l7.5-4.029c.489-.263.951-1.286.054-1.286H1.521c-.897 0-.435 1.023.053 1.286zm17.039 2.203l-7.727 4.027c-.34.178-.578.199-.906.199s-.566-.021-.906-.199s-7.133-3.739-7.688-4.028C.996 7.284 1 7.523 1 7.707V15c0 .42.566 1 1 1h16c.434 0 1-.58 1-1V7.708c0-.184.004-.423-.387-.219z" fill="#626262"/><rect x="0" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)" />
+                            </svg>
+                        </span>julie.rebeyrolle@gmail.com</p>
+                <p class="py-3 pl-2 font-weight-bold">
+                    <span class="pr-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1.5em" height="1.5em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"  viewBox="0 0 1024 1024"><path d="M946.5 505L534.6 93.4a31.93 31.93 0 0 0-45.2 0L77.5 505c-12 12-18.8 28.3-18.8 45.3c0 35.3 28.7 64 64 64h43.4V908c0 17.7 14.3 32 32 32H448V716h112v224h265.9c17.7 0 32-14.3 32-32V614.3h43.4c17 0 33.3-6.7 45.3-18.8c24.9-25 24.9-65.5-.1-90.5z" fill="#626262"/><rect x="0" y="0" width="1024" height="1024" fill="rgba(0, 0, 0, 0)" />
+                    </svg>
+                        </span>Orléans</p>
+            </div>
+        </div>
+        <div class="col-xl-7 col-md-12 border-left px-5">
+            <h4 class="py-3">Formulaire</h4>
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="text-center py-5">
+                <button class="btn btn-secondary">{{ button_label|default('Envoyer') }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+
+</div>
+</div>
 {% endblock %}
 
