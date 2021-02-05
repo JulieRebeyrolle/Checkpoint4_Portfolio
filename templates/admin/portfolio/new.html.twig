@@ -1,0 +1,14 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{{ parent() }} Ajouter un projet{% endblock %}
+
+
+{% block body %}
+    <div class="content-container container">
+        <a href="{{ path('admin_portfolio_index') }}" class="btn btn-primary mt-5">Retour à la liste</a>
+        <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Ajouter un projet</h1>
+        <div class="content-container container">
+            {{ include('admin/portfolio/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
