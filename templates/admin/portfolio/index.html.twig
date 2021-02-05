@@ -32,8 +32,33 @@
                 <td>{% for techno in portfolio.technos %}{{ techno.name }} {% endfor%} </td>
 
                 <td>
-                    <a href="{{ path('admin_portfolio_show', {'id': portfolio.id}) }}">show</a>
-                    <a href="{{ path('admin_portfolio_edit', {'id': portfolio.id}) }}">edit</a>
+                    <a href="{{ path('admin_portfolio_show', {'id': portfolio.id}) }}" class="text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             aria-hidden="true" focusable="false" width="2em" height="2em"
+                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
+                             transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet"
+                             viewBox="0 0 36 36">
+                            <path d="M33.62 17.53c-3.37-6.23-9.28-10-15.82-10S5.34 11.3 2 17.53l-.28.47l.26.48c3.37 6.23
+                             9.28 10 15.82 10s12.46-3.72 15.82-10l.26-.48zm-15.82 8.9C12.17 26.43 7 23.29 4 18c3-5.29
+                             8.17-8.43 13.8-8.43S28.54 12.72 31.59 18c-3.05 5.29-8.17 8.43-13.79 8.43z"
+                                  class="clr-i-solid clr-i-solid-path-1" fill="#626262"/><circle cx="18.09"
+                                                                                                 cy="18.03" r="6.86" class="clr-i-solid clr-i-solid-path-2 align-middle" fill="#626262"/>
+                            <rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" />
+                        </svg>
+                    </a>
+                    <a href="{{ path('admin_portfolio_edit', {'id': portfolio.id}) }}" class="text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             aria-hidden="true" focusable="false" width="2em" height="2em"
+                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg);
+                             transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                            <path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6
+                            8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4
+                            3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9
+                            114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5
+                            168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z" fill="#626262"/>
+                            <rect x="0" y="0" width="1024" height="1024" fill="rgba(0, 0, 0, 0)" />
+                        </svg>
+                    </a>
                 </td>
             </tr>
         {% else %}

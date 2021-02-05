@@ -54,10 +54,12 @@ class AdminPortfolioController extends AbstractController
 
     /**
      * @Route("/{id}", name="portfolio_show", methods={"GET"})
+     * @param Portfolio $portfolio
+     * @return Response
      */
     public function show(Portfolio $portfolio): Response
     {
-        return $this->render('portfolio/show.html.twig', [
+        return $this->render('admin/portfolio/show.html.twig', [
             'portfolio' => $portfolio,
         ]);
     }
