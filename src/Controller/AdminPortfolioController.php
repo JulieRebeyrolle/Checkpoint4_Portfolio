@@ -64,6 +64,9 @@ class AdminPortfolioController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="portfolio_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Portfolio $portfolio
+     * @return Response
      */
     public function edit(Request $request, Portfolio $portfolio): Response
     {
@@ -73,10 +76,10 @@ class AdminPortfolioController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('portfolio_index');
+            return $this->redirectToRoute('admin_portfolio_index');
         }
 
-        return $this->render('portfolio/edit.html.twig', [
+        return $this->render('admin/portfolio/edit.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);
@@ -84,6 +87,9 @@ class AdminPortfolioController extends AbstractController
 
     /**
      * @Route("/{id}", name="portfolio_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Portfolio $portfolio
+     * @return Response
      */
     public function delete(Request $request, Portfolio $portfolio): Response
     {
@@ -93,6 +99,6 @@ class AdminPortfolioController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('portfolio_index');
+        return $this->redirectToRoute('admin_portfolio_index');
     }
 }

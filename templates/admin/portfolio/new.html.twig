@@ -1,11 +1,14 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block title %}New Portfolio{% endblock %}
+{% block title %}{{ parent() }} Ajouter un projet{% endblock %}
+
 
 {% block body %}
-    <h1>Create new Portfolio</h1>
-
-    {{ include('admin/portfolio/_form.html.twig') }}
-
-    <a href="{{ path('admin_portfolio_index') }}">back to list</a>
+    <div class="content-container container">
+        <a href="{{ path('admin_portfolio_index') }}" class="btn btn-primary mt-5">Retour à la liste</a>
+        <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Ajouter un projet</h1>
+        <div class="content-container container">
+            {{ include('admin/portfolio/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
