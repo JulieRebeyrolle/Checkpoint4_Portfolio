@@ -35,6 +35,7 @@ class CurriculumVitae
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $startingDate;
 

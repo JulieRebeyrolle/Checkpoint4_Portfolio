@@ -7,7 +7,7 @@
     <a href="{{ path('portfolio_index') }}" class="btn btn-primary mt-3">Retour à la liste</a>
 
     <h1 class="font-weight-bold text-dark text-center pt-5">Projet : {{ portfolio.name }}</h1>
-    <h3 class="font-weight-bold text-dark text-center pb-5">{{ portfolio.date ? portfolio.date|date('Y-m') : '' }}</h3>
+    <h3 class="font-weight-bold text-dark text-center pb-5">{{ portfolio.date ? portfolio.date|date('m-Y') : '' }}</h3>
 
     <div class="text-center container">
         <p>{{ portfolio.resume }}</p>
