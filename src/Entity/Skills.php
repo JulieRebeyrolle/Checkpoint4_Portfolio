@@ -81,9 +81,15 @@ class Skills
      */
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Portfolio::class, mappedBy="technos")
+     */
+    private $projects;
+
     public function __construct()
     {
         $this->skillsCategories = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -189,6 +195,33 @@ class Skills
     public function setCategory(?SkillsCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Portfolio[]
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Portfolio $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->addTechno($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Portfolio $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            $project->removeTechno($this);
+        }
 
         return $this;
     }
