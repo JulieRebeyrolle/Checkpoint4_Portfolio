@@ -29,6 +29,8 @@ class AdminPortfolioController extends AbstractController
 
     /**
      * @Route("/new", name="portfolio_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -41,10 +43,10 @@ class AdminPortfolioController extends AbstractController
             $entityManager->persist($portfolio);
             $entityManager->flush();
 
-            return $this->redirectToRoute('portfolio_index');
+            return $this->redirectToRoute('admin_portfolio_index');
         }
 
-        return $this->render('portfolio/new.html.twig', [
+        return $this->render('admin/portfolio/new.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);

@@ -13,6 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PortfolioRepository::class)
+ * @Vich\Uploadable
  */
 class Portfolio
 {
@@ -29,6 +30,11 @@ class Portfolio
     private ?string $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $github;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private ?\DateTimeInterface $date;
@@ -36,7 +42,7 @@ class Portfolio
     /**
      * @ORM\ManyToMany(targetEntity=Skills::class, inversedBy="projects")
      */
-    private ArrayCollection $technos;
+    private Collection $technos;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -46,10 +52,10 @@ class Portfolio
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $coverPicture;
+    private ?string $coverPicture = null;
 
     /**
-     * @Vich\UploadableField(mapping="icon_file", fileNameProperty="icon")
+     * @Vich\UploadableField(mapping="cover_file", fileNameProperty="coverPicture")
      * @var File|null
      * @Assert\Image(
      *     maxSize="1024000",
@@ -151,12 +157,28 @@ class Portfolio
         return $this;
     }
 
-    public function getCoverFile(): ?string
+    /**
+     * @return DateTime
+     */
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param DateTime $updatedAt
+     */
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    public function getCoverFile(): ?File
     {
         return $this->coverFile;
     }
 
-    public function setCoverFile(?string $coverFile): self
+    public function setCoverFile(?File $coverFile): self
     {
         $this->coverFile = $coverFile;
         if ($coverFile) {
@@ -164,4 +186,22 @@ class Portfolio
         }
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getGithub(): ?string
+    {
+        return $this->github;
+    }
+
+    /**
+     * @param string|null $github
+     */
+    public function setGithub(?string $github): void
+    {
+        $this->github = $github;
+    }
+
+
 }
