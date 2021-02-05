@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} {{ portfolio.name }}{% endblock %}
+
+{% block body %}
+<div class="content-container container">
+    <a href="{{ path('portfolio_index') }}" class="btn btn-primary mt-3">Retour à la liste</a>
+
+    <h1 class="font-weight-bold text-dark text-center pt-5">Projet : {{ portfolio.name }}</h1>
+    <h3 class="font-weight-bold text-dark text-center pb-5">{{ portfolio.date ? portfolio.date|date('Y-m') : '' }}</h3>
+
+    <div class="text-center container">
+        <p>{{ portfolio.resume }}</p>
+    </div>
+
+    <div class="text-center container py-5">
+        <h3 class="pb-3">Stack</h3>
+        {% for techno in portfolio.technos %}
+        <p class="btn btn-primary font-weight-bold mx-2">{{ techno.name }}</p>
+        {% endfor%}
+    </div>
+
+    <div class="container py-5 mb-5 shadow-lg">
+        <img class="img-fluid" src="/uploads/images/covers/{{ portfolio.coverPicture }}" alt="{{ portfolio.name }} picture">
+    </div>
+
+
+
+
+    </div>
+</div>
+{% endblock %}
