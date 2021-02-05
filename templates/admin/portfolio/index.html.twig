@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Portfolio index{% endblock %}
+{% block title %}{{ parent() }} Portfolio index{% endblock %}
 
 {% block body %}
-    <h1>Portfolio index</h1>
+
+<div class="content-container container">
+    <h1 class="font-weight-bold text-dark text-center pt-5 pb-2">Portfolio</h1>
+
+    <div class="text-center py-5">
+        <a href="{{ path('admin_portfolio_new') }}" class="btn btn-secondary">Ajouter un nouveau projet</a>
+    </div>
 
     <table class="table">
         <thead>
@@ -12,9 +18,8 @@
                 <th>Name</th>
                 <th>Date</th>
                 <th>Resume</th>
-                <th>CoverPicture</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
+                <th>Technos</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,22 +27,22 @@
             <tr>
                 <td>{{ portfolio.id }}</td>
                 <td>{{ portfolio.name }}</td>
-                <td>{{ portfolio.date ? portfolio.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ portfolio.date ? portfolio.date|date('Y-m') : '' }}</td>
                 <td>{{ portfolio.resume }}</td>
-                <td>{{ portfolio.coverPicture }}</td>
-                <td>{{ portfolio.updatedAt ? portfolio.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{% for techno in portfolio.technos %}{{ techno.name }} {% endfor%} </td>
+
                 <td>
-                    <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}">show</a>
-                    <a href="{{ path('portfolio_edit', {'id': portfolio.id}) }}">edit</a>
+                    <a href="{{ path('admin_portfolio_show', {'id': portfolio.id}) }}">show</a>
+                    <a href="{{ path('admin_portfolio_edit', {'id': portfolio.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun projet</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('portfolio_new') }}">Create new</a>
+</div>
 {% endblock %}

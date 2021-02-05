@@ -11,16 +11,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/portfolio", name="admin_portfolio_")
+ * @Route("/admin/portfolio", name="admin_")
  */
 class AdminPortfolioController extends AbstractController
 {
     /**
      * @Route("/", name="portfolio_index", methods={"GET"})
+     * @param PortfolioRepository $portfolioRepository
+     * @return Response
      */
     public function index(PortfolioRepository $portfolioRepository): Response
     {
-        return $this->render('portfolio/index.html.twig', [
+        return $this->render('admin/portfolio/index.html.twig', [
             'portfolios' => $portfolioRepository->findAll(),
         ]);
     }
